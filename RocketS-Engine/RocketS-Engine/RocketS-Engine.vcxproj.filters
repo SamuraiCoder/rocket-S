@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{b499bbbb-ff07-4ee1-9e93-6058a63de3e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Logic">
+      <UniqueIdentifier>{82458ad5-2ac7-448e-aac0-2ec42ef3b107}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics">
+      <UniqueIdentifier>{6bf6fe14-22ba-426a-8c4b-4a9d6e6b7f92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameUtils">
+      <UniqueIdentifier>{f046f7c6-3ff5-4d66-9ba5-0fcb7b8eb012}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileUtils.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsManager.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>Source Files\GameUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="Frame.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameAnimation.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameAnimationSet.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Hero.cpp">
+      <Filter>Source Files\Logic</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FileUtils.h">
+      <Filter>Source Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsManager.h">
+      <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>Source Files\GameUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="Frame.h">
+      <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameAnimation.h">
+      <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameAnimationSet.h">
+      <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Source Files\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Hero.h">
+      <Filter>Source Files\Logic</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RocketS-Engine1.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+</Project>
