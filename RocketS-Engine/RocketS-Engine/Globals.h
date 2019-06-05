@@ -8,4 +8,3 @@
 #include "TimeManager.h"
 
 static auto GM = Graphics::CGraphicsManager::Instance();
-static auto TM = GameUtils::CTimeManager::Instance();

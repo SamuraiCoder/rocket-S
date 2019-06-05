@@ -6,6 +6,10 @@
 
 #include "Game.h"
 
+#ifdef _DEBUG
+	#include "vld.h"
+#endif
+
 int main(int argc, char** argv)
 {
 	//Init graphics server
@@ -13,15 +17,11 @@ int main(int argc, char** argv)
 		GM->Setup(1024, 720);
 
 	//Init time server
-	if (TM->Init())
-		TM->Setup();
-	
+	GameUtils::CTimeManager::Instance();
+
 	//Create the game
 	Game myGame;
 	myGame.update();
-
-	GM->cleanup(GM->GetSDLRenderer());
-	GM->cleanup(GM->GetSDLWindow());
 	
 	return 0;
 }

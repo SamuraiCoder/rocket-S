@@ -15,22 +15,26 @@ namespace GameUtils
 	class CTimeManager
 	{
 	public:
-		CTimeManager();
-		~CTimeManager();
-		static bool Init();
-		void Setup();
+		static CTimeManager& Instance()
+		{
+			static CTimeManager _instance;
+			return _instance;
+		}
+
 		void Update();
-		void Pause() { _instance->state = GAME_STATE::PAUSE_STATE; };
-		void Resume(){ _instance->state = GAME_STATE::PLAY_STATE; };
-		float DeltaTime() { return _instance->deltaTime; }
+		void Pause() { state = GAME_STATE::PAUSE_STATE; };
+		void Resume(){ state = GAME_STATE::PLAY_STATE; };
+		float DeltaTime() { return deltaTime; }
 
-		//getter-setters
-		static CTimeManager* Instance(){ return _instance; }
-
+	protected:
+		CTimeManager();
+		CTimeManager(const CTimeManager&);
+		CTimeManager& operator=(const CTimeManager&);
+		~CTimeManager(){ };
+		
 	private:
-		static CTimeManager *_instance;
 		//Last time we checked how many ticks we had since.
-		Uint32 lastUpdate;
+		uint64_t lastUpdate;
 		//Last time that the last render was sent to screen.
 		float deltaTime;
 		//Enum that declares what is the current state 

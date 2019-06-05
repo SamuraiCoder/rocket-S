@@ -16,7 +16,7 @@ Game::Game()
 
 Game::~Game()
 {
-	//todo: implement!
+	//TODO: Here all the calls to free the render. 
 }
 
 void Game::update()
@@ -27,7 +27,7 @@ void Game::update()
 
 		while (!exitApp)
 		{
-			TM->Update();
+			GameUtils::CTimeManager::Instance().Update();
 			while (SDL_PollEvent(&sdl_event))
 			{
 				switch (sdl_event.key.keysym.scancode)
@@ -50,7 +50,7 @@ void Game::draw()
 	//paint background
 	GM->renderTexture(background);
 
-	for (list<Logic::Entity*>::iterator ent = m_GameEntities.begin(); ent != m_GameEntities.end(); ++ent){
+	for (auto ent = m_GameEntities.begin(); ent != m_GameEntities.end(); ++ent){
 		(*ent)->Draw();
 	}
 }

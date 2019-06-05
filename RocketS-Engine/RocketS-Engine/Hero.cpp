@@ -23,7 +23,7 @@ namespace Logic{
 		if (currentFrame == nullptr || currentFAnimation == nullptr)
 			return; 
 
-		fTimer += TM->DeltaTime();
+		fTimer += GameUtils::CTimeManager::Instance().DeltaTime();
 		
 		//Current frame duration it's over?
 		if (fTimer >= currentFrame->GetFrameDuration())

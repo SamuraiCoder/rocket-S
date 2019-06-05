@@ -41,13 +41,13 @@ namespace Graphics
 
 	CGraphicsManager::~CGraphicsManager()
 	{
-		if (_window)
-			cleanup(_window);
-		if (_renderer)
-			cleanup(_renderer);
 		if (_instance)
 			delete _instance;
-		
+		if (_renderer)
+			cleanup(_renderer);
+		if (_window)
+			cleanup(_window);
+	
 		_window = NULL;
 		_renderer = NULL;		
 		_instance = NULL;
