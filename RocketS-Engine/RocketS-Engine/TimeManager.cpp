@@ -1,10 +1,13 @@
 #include "TimeManager.h"
 
+using std::cout;
+using std::endl;
 
 namespace GameUtils
 {
 	CTimeManager::CTimeManager()
 	{
+		cout << "[TimeManager] CTimeManager init" << endl;
 		deltaTime = 0.0f;
 		lastUpdate = 0;
 		state = GAME_STATE::PLAY_STATE;
