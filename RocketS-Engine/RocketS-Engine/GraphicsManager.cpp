@@ -6,25 +6,10 @@ using std::endl;
 
 namespace Graphics
 {
-	//Unique instances.
-	CGraphicsManager* CGraphicsManager::_instance = 0;
-	SDL_Window* CGraphicsManager::_window = 0;
-	SDL_Renderer* CGraphicsManager::_renderer = 0;
-	
 	CGraphicsManager::CGraphicsManager()
 	{
-		assert(!_instance && "[GraphicsManager] 2nd initialization of GraphicsManager!");
+		cout << "[GraphicsManager] CGraphicsManager init" << endl;
 		_InitializeSDL();
-	}
-
-	bool CGraphicsManager::Init()
-	{
-		_instance = new CGraphicsManager();
-
-		if (_instance)
-			return true;
-		else
-			return false;
 	}
 
 	void CGraphicsManager::Setup(int height, int width)
@@ -41,8 +26,6 @@ namespace Graphics
 
 	CGraphicsManager::~CGraphicsManager()
 	{
-		if (_instance)
-			delete _instance;
 		if (_renderer)
 			cleanup(_renderer);
 		if (_window)
@@ -50,8 +33,6 @@ namespace Graphics
 	
 		_window = NULL;
 		_renderer = NULL;		
-		_instance = NULL;
-
 	}
 
 	void CGraphicsManager::_InitializeSDL()

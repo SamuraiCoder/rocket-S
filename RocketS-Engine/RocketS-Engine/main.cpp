@@ -13,8 +13,8 @@
 int main(int argc, char** argv)
 {
 	//Init graphics server
-	if (GM->Init())
-		GM->Setup(1024, 720);
+	Graphics::CGraphicsManager::Instance();
+	Graphics::CGraphicsManager::Instance().Setup(1024, 720);
 
 	//Init time server
 	GameUtils::CTimeManager::Instance();

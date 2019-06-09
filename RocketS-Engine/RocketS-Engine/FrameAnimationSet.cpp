@@ -37,18 +37,18 @@ namespace Graphics {
 			getline(file, spriteSheetName);
 			if (setColourKey)
 			{
-				SDL_Surface *spriteSurface = GM->loadSurface(resPath + fileName);
+				SDL_Surface *spriteSurface = Graphics::CGraphicsManager::Instance().loadSurface(resPath + fileName);
 
 				//for transparency, we will grab the [transparentPixelIndex] from the surface we just made
 				SDL_Color* transparentPixel = &spriteSurface->format->palette->colors[transparentPixelIndex];
 				SDL_SetColorKey(spriteSurface, 1, SDL_MapRGB(spriteSurface->format, transparentPixel->r, transparentPixel->g, transparentPixel->b));
 
-				spriteSheet = GM->convertSurfaceToTexture(spriteSurface, false);
+				spriteSheet = Graphics::CGraphicsManager::Instance().convertSurfaceToTexture(spriteSurface, false);
 
-				GM->cleanup(spriteSurface);
+				Graphics::CGraphicsManager::Instance().cleanup(spriteSurface);
 			}
 			else
-				spriteSheet = GM->loadTexture(resPath + fileName);
+				spriteSheet = Graphics::CGraphicsManager::Instance().loadTexture(resPath + fileName);
 
 			string buffer;
 			getline(file, buffer);

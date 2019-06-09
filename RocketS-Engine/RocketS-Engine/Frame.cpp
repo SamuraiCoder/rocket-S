@@ -5,12 +5,12 @@ namespace Graphics{
 	void Frame::Draw(SDL_Texture* spriteSheet, float destX, float destY)
 	{
 		SDL_Rect posToDraw;
-		posToDraw.x = destX - frameAnchor.x;
-		posToDraw.y = destY - frameAnchor.y;
+		posToDraw.x = (int)destX - frameAnchor.x;
+		posToDraw.y = (int)destY - frameAnchor.y;
 		posToDraw.w = frameClip.w;
 		posToDraw.h = frameClip.h;
 
-		GM->renderTexture(spriteSheet, GM->GetSDLRenderer(), posToDraw.x, posToDraw.y, &frameClip);
+		Graphics::CGraphicsManager::Instance().renderTexture(spriteSheet, Graphics::CGraphicsManager::Instance().GetSDLRenderer(), posToDraw.x, posToDraw.y, &frameClip);
 	}
 
 	void Frame::loadFrame(ifstream &file)

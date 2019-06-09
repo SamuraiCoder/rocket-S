@@ -6,5 +6,3 @@
 
 #include "GraphicsManager.h"
 #include "TimeManager.h"
-
-static auto GM = Graphics::CGraphicsManager::Instance();

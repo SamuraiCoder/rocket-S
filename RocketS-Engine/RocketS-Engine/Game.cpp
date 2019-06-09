@@ -8,7 +8,7 @@ using Graphics::FrameAnimationSet;
 
 Game::Game()
 {
-		background = GM->loadTexture("background1.png");
+		background = Graphics::CGraphicsManager::Instance().loadTexture("background1.png");
 
 		//FrameAnimationSet *hero = new FrameAnimationSet("heroFrameSet");
 		//hero->loadAnimationSet("heroFrameSet",true, 0);
@@ -48,7 +48,7 @@ void Game::update()
 void Game::draw()
 {
 	//paint background
-	GM->renderTexture(background);
+	Graphics::CGraphicsManager::Instance().renderTexture(background);
 
 	for (auto ent = m_GameEntities.begin(); ent != m_GameEntities.end(); ++ent){
 		(*ent)->Draw();

@@ -20,16 +20,16 @@ namespace Graphics
 	class CGraphicsManager
 	{
 	public:
-		CGraphicsManager();
-		~CGraphicsManager();
-		static bool Init();
 		void Setup(int height, int width);
 
-		//Getters-Setters
-		static CGraphicsManager* Instance(){ return _instance; }
-		static SDL_Window* GetSDLWindow(){ return _window; }
-		static SDL_Renderer* GetSDLRenderer(){ return _renderer; }
-		
+		SDL_Renderer *GetSDLRenderer(){ return _renderer; }
+
+		static CGraphicsManager &Instance()
+		{
+			static CGraphicsManager _instance;
+			return _instance;
+		}
+
 		//Member functions
 		void SetupSDLWindow(int height, int width);
 		void SetupSDLRenderer();
@@ -120,13 +120,16 @@ namespace Graphics
 		*Converts a surface to a texture and optionally deletes the surface
 		*/
 		SDL_Texture *convertSurfaceToTexture(SDL_Surface* surface, bool cleanSurfaceAfter = false);
-		
+	protected:
+		CGraphicsManager();
+		CGraphicsManager(const CGraphicsManager&);
+		CGraphicsManager& operator=(const CGraphicsManager&);
+		~CGraphicsManager();
 
 	private:
 		//Class instance
-		static CGraphicsManager *_instance;
-		static SDL_Window *_window;
-		static SDL_Renderer *_renderer;
+		SDL_Window *_window;
+		SDL_Renderer *_renderer;
 		
 		void _InitializeSDL();
 
