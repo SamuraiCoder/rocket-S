@@ -2,7 +2,7 @@
 #define ENTITY
 
 #include <iostream>
-#include "FrameAnimationSet.h"
+#include "Graphics\FrameAnimationSet.h"
 
 /*
 	Entity class. It represents an entity (hero, enemies, props, bullets...) in a game scene.

@@ -3,7 +3,7 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
-#include "Entity.h"
+#include "Logic\Entity.h"
 
 class Game{
 	public:

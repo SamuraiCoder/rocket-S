@@ -1,8 +1,8 @@
 #include "Game.h"
 
 #include <iostream>
-#include "FrameAnimationSet.h"
-#include "TimeManager.h"
+#include "Graphics\FrameAnimationSet.h"
+#include "GameUtils\TimeManager.h"
 
 using Graphics::FrameAnimationSet;
 
