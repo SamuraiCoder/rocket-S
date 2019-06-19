@@ -1,22 +1,24 @@
 #include "Game.h"
 
 #include <iostream>
-#include "Graphics\FrameAnimationSet.h"
-#include "GameUtils\TimeManager.h"
+#include "Logic\Hero.h"
 
-using Graphics::FrameAnimationSet;
+using Logic::Hero;
 
 Game::Game()
 {
 		background = Graphics::CGraphicsManager::Instance().loadTexture("background1.png");
 
-		//FrameAnimationSet *hero = new FrameAnimationSet("heroFrameSet");
-		//hero->loadAnimationSet("heroFrameSet",true, 0);
+		Hero *hero = new Hero("Marco_Rossi", 100.0f, 650.0f, 2.0f, 0.5, 1.0f, "marco_rossi.fas");
+		m_GameEntities.push_back(hero);
 }
 
 Game::~Game()
 {
-	//TODO: Here all the calls to free the render. 
+	for (auto ent = m_GameEntities.begin(); ent != m_GameEntities.end(); ++ent)
+		delete (*ent);
+
+	m_GameEntities.clear();
 }
 
 void Game::update()
@@ -38,19 +40,24 @@ void Game::update()
 				}
 			}
 
-			//TODO: Update all entities
-
-			//TODO: draw all entities
-			draw();
+			updateEntities();
+			drawEntities();
 		}
 }
 
-void Game::draw()
+void Game::drawEntities()
 {
 	//paint background
 	Graphics::CGraphicsManager::Instance().renderTexture(background);
 
 	for (auto ent = m_GameEntities.begin(); ent != m_GameEntities.end(); ++ent){
 		(*ent)->Draw();
+	}
+}
+
+void Game::updateEntities()
+{
+	for (auto ent = m_GameEntities.begin(); ent != m_GameEntities.end(); ++ent){
+		(*ent)->Update();
 	}
 }

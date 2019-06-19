@@ -4,16 +4,15 @@ namespace Graphics {
 	FrameAnimationSet::FrameAnimationSet(const string &animName)
 	{
 		spriteSheetName = animName;
+		isLoaded = false;
 	}
 
 	FrameAnimationSet::~FrameAnimationSet()
 	{
-		//todo: implement!
 	}
 
 	FrameAnimation* FrameAnimationSet::getFrameAnimationSet(const string &animationFrameSetName)
 	{
-		//todo: redo thinking on modern lambdas!
 		for (list<FrameAnimation>::iterator it = frameAnimationSet.begin(); it != frameAnimationSet.end(); ++it)
 		{
 			FrameAnimation* frameAnimation = &(*it);
@@ -37,7 +36,7 @@ namespace Graphics {
 			getline(file, spriteSheetName);
 			if (setColourKey)
 			{
-				SDL_Surface *spriteSurface = Graphics::CGraphicsManager::Instance().loadSurface(resPath + fileName);
+				SDL_Surface *spriteSurface = Graphics::CGraphicsManager::Instance().loadSurface(resPath + spriteSheetName);
 
 				//for transparency, we will grab the [transparentPixelIndex] from the surface we just made
 				SDL_Color* transparentPixel = &spriteSurface->format->palette->colors[transparentPixelIndex];
@@ -48,7 +47,7 @@ namespace Graphics {
 				Graphics::CGraphicsManager::Instance().cleanup(spriteSurface);
 			}
 			else
-				spriteSheet = Graphics::CGraphicsManager::Instance().loadTexture(resPath + fileName);
+				spriteSheet = Graphics::CGraphicsManager::Instance().loadTexture(resPath + spriteSheetName);
 
 			string buffer;
 			getline(file, buffer);
@@ -67,6 +66,7 @@ namespace Graphics {
 
 		}
 		file.close();
+		isLoaded = true;
 	}
 
 }

@@ -1,36 +1,36 @@
 #include "FileUtils.h"
 
 namespace FileUtils {
-	std::string GetResourcePath(const std::string &subDir){
-		//We need to choose the path separator properly based on which
-		//platform we're running on, since Windows uses a different
-		//separator than most systems
+	std::string GetResourcePath(const std::string &subDir)
+	{
 #ifdef _WIN32
-		const char PATH_SEP = '\\';
+		char const *PATH_SEP = "\\";
 #else
-		const char PATH_SEP = '/';
+		char const *PATH_SEP = '/';
 #endif
-		//This will hold the base resource path: 
-		//We give it static lifetime so that we'll only need to call
-		//SDL_GetBasePath once to get the executable path
 		static std::string baseRes;
-		if (baseRes.empty()){
-			//SDL_GetBasePath will return NULL if something went wrong in retrieving the path
-			char *basePath = SDL_GetBasePath();
-			if (basePath){
-				baseRes = basePath;
-				SDL_free(basePath);
-			}
-			else {
-				std::cerr << "[FileUtils] Error getting resource path: " << SDL_GetError() << std::endl;
-				return "";
-			}
-			//We replace the last bin/ with data/ to get the the resource path
-			size_t pos = baseRes.rfind("bin");
-			baseRes = baseRes.substr(0, pos) + "data" + PATH_SEP;
+		//In some platforms, this might return NULL
+		char *basePath = SDL_GetBasePath();
+		
+		if (basePath == nullptr)
+		{
+			std::cerr << "[FileUtils] Error getting resource path: " << SDL_GetError() << std::endl;
+			return NULL;
 		}
-		//If we want a specific subdirectory path in the resource directory
-		//append it to the base path. This would be something like Lessons/res/Lesson0
+
+		baseRes = basePath;
+		SDL_free(basePath);
+#ifdef _DEBUG
+		//This basically will point to ..\\..\\data from the project instead of the DEBUG folder.
+		baseRes.append("..");
+		baseRes.append(PATH_SEP);
+		baseRes.append("..");
+		baseRes.append(PATH_SEP);
+		baseRes.append("data");
+		baseRes.append(PATH_SEP);
+#else
+		baseRes.append(PATH_SEP);
+#endif		
 		return subDir.empty() ? baseRes : baseRes + subDir + PATH_SEP;
 	}
 

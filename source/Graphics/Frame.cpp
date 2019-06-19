@@ -2,7 +2,7 @@
 
 namespace Graphics{
 
-	void Frame::Draw(SDL_Texture* spriteSheet, float destX, float destY)
+	void Frame::Draw(SDL_Texture* spriteSheet, float destX, float destY, float scale)
 	{
 		SDL_Rect posToDraw;
 		posToDraw.x = (int)destX - frameAnchor.x;
@@ -10,7 +10,7 @@ namespace Graphics{
 		posToDraw.w = frameClip.w;
 		posToDraw.h = frameClip.h;
 
-		Graphics::CGraphicsManager::Instance().renderTexture(spriteSheet, Graphics::CGraphicsManager::Instance().GetSDLRenderer(), posToDraw.x, posToDraw.y, &frameClip);
+		Graphics::CGraphicsManager::Instance().renderTexture(spriteSheet, Graphics::CGraphicsManager::Instance().GetSDLRenderer(), posToDraw.x, posToDraw.y, scale, &frameClip);
 	}
 
 	void Frame::loadFrame(ifstream &file)
@@ -39,7 +39,7 @@ namespace Graphics{
 		ss << buffer;
 		ss >> frameAnchor.x >> frameAnchor.y;
 		
-		//index
+		//clip
 		getline(file, buffer);
 		ss.clear();
 		buffer = FileUtils::GetSubstrFiles(buffer);

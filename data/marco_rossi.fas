@@ -1,0 +1,23 @@
+Marco_Rossi_SpriteSheet.png
+animations: 1
+idle
+frames: 3
+frame
+index: 0
+duration: 0.2
+offset: 17 39
+clip: 3 19 32 42
+frame
+index: 1
+duration: 0.2
+offset: 17 39
+clip: 35 19 32 42
+frame
+index: 2
+duration: 0.2
+offset: 17 39
+clip: 67 19 32 42
+
+
+
+

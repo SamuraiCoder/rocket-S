@@ -6,12 +6,17 @@
 */
 
 #include "Entity.h"
+#include "Graphics\FrameAnimationSet.h"
+
+
+using Graphics::FrameAnimationSet;
+
 
 namespace Logic{
 	class Hero : public Entity
 	{
 	public:
-		Hero(const std::string &heroName, Graphics::FrameAnimationSet *frameAnimSet);
+		Hero(const std::string &heroName, float positionX, float positionY, float scale, float speedMove, float maxSpeedMove, const std::string &frameAnimSetName);
 		~Hero();
 		void Update();
 	private:

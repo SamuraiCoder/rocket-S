@@ -12,8 +12,6 @@ namespace Logic {
 	class Entity
 	{
 		public:
-			Entity(){};
-			Entity(const std::string &name, float positionX, float positionY, float speedMove, float maxSpeedMove, Graphics::FrameAnimationSet *frameAnimationSet = nullptr);
 			virtual ~Entity();
 			virtual void Update();
 			virtual void Draw();
@@ -21,10 +19,11 @@ namespace Logic {
 		protected:
 			std::string entityName;
 			bool isActive;
-			float positionX, positionY;
-			float speedMove;
-			float maxSpeedMove;
-			float fTimer; //duration of each frame
+			float entityPosX, entityPosY;
+			float entitySpeedMove;
+			float entityMaxSpeedMove;
+			float entityScale;
+			float entityFTimer;
 		
 			Graphics::FrameAnimationSet *entityFAnimationSet;
 			Graphics::FrameAnimation *currentFAnimation;

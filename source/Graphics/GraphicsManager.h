@@ -73,10 +73,11 @@ namespace Graphics
 		* @param ren The renderer we want to draw to
 		* @param x The x coordinate to draw to
 		* @param y The y coordinate to draw to
+		* @param scale Scale for this sprite
 		* @param clip The sub-section of the texture to draw (clipping rect)
 		*		default of nullptr draws the entire texture
 		*/
-		void renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, SDL_Rect *clip = nullptr);
+		void renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, int scale,  SDL_Rect *clip = nullptr);
 
 		/**
 		* Draw an SDL_Texture to an SDL_Renderer at some destination rect

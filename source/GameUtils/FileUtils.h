@@ -13,7 +13,7 @@
 namespace FileUtils {
 	/*
 	* GetResourcePath
-	* Get the resource path for resources located in res/subDir
+	* Get the resource path for resources.
 	*/
 	std::string GetResourcePath(const std::string &subDir = "");
 

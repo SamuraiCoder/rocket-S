@@ -12,8 +12,6 @@ namespace Graphics {
 		//Default constructor passing a name for the animationFrame
 		FrameAnimation(const string &name);
 
-		//Todo: destructors!
-		
 		//Returns the next frame if exists otherwise goes to the beginning. 
 		Frame *getNextFrame(Frame* frame);
 

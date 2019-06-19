@@ -22,6 +22,6 @@ int main(int argc, char** argv)
 	//Create the game
 	Game myGame;
 	myGame.update();
-	
+
 	return 0;
 }

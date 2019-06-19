@@ -115,16 +115,18 @@ namespace Graphics
 		SDL_RenderPresent(_renderer);
 	}
 
-	void CGraphicsManager::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y,	SDL_Rect *clip)
+	void CGraphicsManager::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, int scale, SDL_Rect *clip)
 	{
 		SDL_Rect dst;
 		dst.x = x;
 		dst.y = y;
-		if (clip != nullptr){
-			dst.w = clip->w;
-			dst.h = clip->h;
+		if (clip != nullptr)
+		{
+			dst.w = clip->w * scale;
+			dst.h = clip->h * scale;
 		}
-		else {
+		else 
+		{
 			SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
 		}
 		renderTexture(tex, &dst, clip);
@@ -139,7 +141,6 @@ namespace Graphics
 	SDL_Texture* CGraphicsManager::renderText(const std::string &message, const std::string &fontFile, SDL_Color color, int fontSize)
 	{
 		//Open the font
-		//TODO: store fonts externally from this function call. Bad performance warning!!!
 		TTF_Font *font = TTF_OpenFont(fontFile.c_str(), fontSize);
 		if (font == nullptr){
 			cout << "TTF_OpenFont error" << endl;

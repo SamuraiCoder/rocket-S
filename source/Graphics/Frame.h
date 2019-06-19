@@ -22,19 +22,17 @@ using std::stringstream;
 namespace Graphics{
 	class Frame{
 	public:
-		//Todo: destructors!
-
 		/*
 		 Draws a spritesheet in the given position
 		*/
-		void Draw(SDL_Texture* spriteSheet, float destX, float destY);
+		void Draw(SDL_Texture* spriteSheet, float destX, float destY, float scale);
 		
 		/*
 		 Loads a frame into memory. A Frame is represented with the following structure:
 		 *		index : 0
 		 *		duration : 0.1
 		 *		anchor : 19 47
-		 *		clip : 10 10 10 10
+		 *		clip : 10 10 10 10 (x, y, width, height) 
 		*/
 		void loadFrame(ifstream &file);
 		

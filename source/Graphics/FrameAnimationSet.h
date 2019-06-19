@@ -24,6 +24,9 @@ namespace Graphics {
 
 		//will return the spritesheet where all the animations are
 		SDL_Texture* getSpriteSheet(){ return spriteSheet; }
+
+		bool isLoaded;
+
 	private: 
 		//Spritesheet's name
 		string spriteSheetName;
@@ -31,6 +34,7 @@ namespace Graphics {
 		SDL_Texture* spriteSheet;
 		//List of all the FrameAnimations
 		list<FrameAnimation> frameAnimationSet;
+		
 	};
 }
 #endif
