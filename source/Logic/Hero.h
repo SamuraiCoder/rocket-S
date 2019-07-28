@@ -6,11 +6,6 @@
 */
 
 #include "Entity.h"
-#include "Graphics\FrameAnimationSet.h"
-
-
-using Graphics::FrameAnimationSet;
-
 
 namespace Logic{
 	class Hero : public Entity

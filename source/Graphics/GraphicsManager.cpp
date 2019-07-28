@@ -98,9 +98,7 @@ namespace Graphics
 
 	SDL_Texture* CGraphicsManager::loadTexture(std::string res)
 	{
-		std::string pathToResource = FileUtils::GetResourcePath() + res;
-
-		SDL_Texture* texture = IMG_LoadTexture(_renderer, pathToResource.c_str());
+		SDL_Texture* texture = IMG_LoadTexture(_renderer, res.c_str());
 		if (texture == nullptr)
 		{
 			cout << "[GraphicsManager] SDL reported an error trying to load the resource: " << res.c_str() << endl;

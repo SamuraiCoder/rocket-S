@@ -15,15 +15,15 @@ namespace Logic {
 			virtual ~Entity();
 			virtual void Update();
 			virtual void Draw();
-	
-		protected:
+
+		//protected:
 			std::string entityName;
 			bool isActive;
-			float entityPosX, entityPosY;
-			float entitySpeedMove;
-			float entityMaxSpeedMove;
-			float entityScale;
-			float entityFTimer;
+			float x, y;
+			float moveSpeed;
+			float maxMoveSpeed;
+			float scale;
+			float frameTimer;
 		
 			Graphics::FrameAnimationSet *entityFAnimationSet;
 			Graphics::FrameAnimation *currentFAnimation;

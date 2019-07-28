@@ -4,8 +4,8 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "Logic\Entity.h"
-
 #include "Logic\Hero.h"
+#include "Logic\StaticEntity.h"
 
 using Logic::Hero;
 
@@ -16,9 +16,6 @@ class Game{
 		~Game();
 
 		void update();
-
-		//Todo: remove maybe?
-		SDL_Texture* background;
 	private:
 		void drawEntities();
 		void updateEntities();

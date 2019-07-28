@@ -21,6 +21,7 @@
     <ClCompile Include="..\..\source\Graphics\GraphicsManager.cpp" />
     <ClCompile Include="..\..\source\Logic\Entity.cpp" />
     <ClCompile Include="..\..\source\Logic\Hero.cpp" />
+    <ClCompile Include="..\..\source\Logic\StaticEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\source\GameUtils\FileUtils.h" />
@@ -33,6 +34,7 @@
     <ClInclude Include="..\..\source\Graphics\GraphicsManager.h" />
     <ClInclude Include="..\..\source\Logic\Entity.h" />
     <ClInclude Include="..\..\source\Logic\Hero.h" />
+    <ClInclude Include="..\..\source\Logic\StaticEntity.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7329E1C0-4095-4B5B-A265-558D0C9B9FED}</ProjectGuid>

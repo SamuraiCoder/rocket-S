@@ -1,6 +1,7 @@
 #include "Entity.h"
 
 namespace Logic {
+	
 	Entity::~Entity()
 	{
 		delete entityFAnimationSet;
@@ -12,8 +13,8 @@ namespace Logic {
 	void Entity::Draw()
 	{
 		if (currentFrame != nullptr && isActive){
-			currentFrame->Draw(entityFAnimationSet->getSpriteSheet(), entityPosX, entityPosY, entityScale);
+			currentFrame->Draw(entityFAnimationSet->getSpriteSheet(), x, y, scale);
 		}
 	}
-
 }
+

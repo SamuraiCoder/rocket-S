@@ -1,16 +1,32 @@
 #include "Game.h"
 
 #include <iostream>
-#include "Logic\Hero.h"
 
 using Logic::Hero;
+using Logic::StaticEntity;
+
+
+struct EntityYDepthComparator
+{
+	bool operator ()(const Logic::Entity* const& e1, const Logic::Entity* const &e2)
+	{
+		if (e1->y < e2->y)
+			return true;
+		else
+		    return false;
+	}
+};
+
 
 Game::Game()
 {
-		background = Graphics::CGraphicsManager::Instance().loadTexture("background1.png");
+	//Create background
+	StaticEntity *wallBackground = new StaticEntity("wallBackground", 0.0f, 0.0f, 1, "background1.fas");
+	m_GameEntities.push_back(wallBackground);
 
-		Hero *hero = new Hero("Marco_Rossi", 100.0f, 650.0f, 2.0f, 0.5, 1.0f, "marco_rossi.fas");
-		m_GameEntities.push_back(hero);
+	//Create the Hero
+	Hero *hero = new Hero("Marco_Rossi", 100.0f, 550.0f, 3.0f, 0.5, 1.0f, "marco_rossi.fas");
+	m_GameEntities.push_back(hero);
 }
 
 Game::~Game()
@@ -39,17 +55,13 @@ void Game::update()
 						break;
 				}
 			}
-
+			m_GameEntities.sort(EntityYDepthComparator());
 			updateEntities();
 			drawEntities();
 		}
 }
-
 void Game::drawEntities()
 {
-	//paint background
-	Graphics::CGraphicsManager::Instance().renderTexture(background);
-
 	for (auto ent = m_GameEntities.begin(); ent != m_GameEntities.end(); ++ent){
 		(*ent)->Draw();
 	}

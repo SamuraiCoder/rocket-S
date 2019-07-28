@@ -1,12 +1,16 @@
 #include "Hero.h"
+#include "Graphics\FrameAnimationSet.h"
+
+using Graphics::FrameAnimationSet;
+
 
 namespace Logic{
-	Hero::Hero(const std::string &heroName, float positionX, float positionY, float scale, float speedMove, float maxSpeedMove, const std::string &frameAnimSetName)
+	Hero::Hero(const std::string &heroName, float positionX, float positionY, float entityScale, float speedMove, float maxSpeedMove, const std::string &frameAnimSetName)
 	{
 		//Create the animSet.
 		FrameAnimationSet *heroAnimSet = new FrameAnimationSet(frameAnimSetName);
 		//TODO: rework the background sprite.
-		heroAnimSet->loadAnimationSet(frameAnimSetName, true, 1);
+		heroAnimSet->loadAnimationSet(frameAnimSetName, true, 0);
 		//and assing it to the entity (hero) one.
 		entityFAnimationSet = heroAnimSet;
 		//TODO: fix all the animations in an external source out of here.
@@ -15,11 +19,11 @@ namespace Logic{
 
 		//Create entity Hero
 		entityName = heroName;
-		entityPosX = positionX;
-		entityPosY = positionY;
-		entitySpeedMove = speedMove;
-		entityMaxSpeedMove = maxSpeedMove;
-		entityScale = scale;
+		x = positionX;
+		y = positionY;
+		moveSpeed = speedMove;
+		maxMoveSpeed = maxSpeedMove;
+		scale = entityScale;
 	}
 
 	Hero::~Hero()
@@ -44,13 +48,13 @@ namespace Logic{
 		if (currentFrame == nullptr || currentFAnimation == nullptr)
 			return; 
 
-		entityFTimer += GameUtils::CTimeManager::Instance().DeltaTime();
+		frameTimer += GameUtils::CTimeManager::Instance().DeltaTime();
 		
 		//Current frame duration it's over?
-		if (entityFTimer >= currentFrame->GetFrameDuration())
+		if (frameTimer >= currentFrame->GetFrameDuration())
 		{
 			currentFrame = currentFAnimation->getNextFrame(currentFrame);
-			entityFTimer = 0;
+			frameTimer = 0;
 		}
 	}
 	
