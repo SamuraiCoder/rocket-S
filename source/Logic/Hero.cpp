@@ -9,7 +9,6 @@ namespace Logic{
 	{
 		//Create the animSet.
 		FrameAnimationSet *heroAnimSet = new FrameAnimationSet(frameAnimSetName);
-		//TODO: rework the background sprite.
 		heroAnimSet->loadAnimationSet(frameAnimSetName, true, 0);
 		//and assing it to the entity (hero) one.
 		entityFAnimationSet = heroAnimSet;

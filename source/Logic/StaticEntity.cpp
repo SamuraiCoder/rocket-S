@@ -28,5 +28,25 @@ namespace Logic{
 			isActive = true;
 		else
 			isActive = false;
+
+		if (isActive)
+		{
+			UpdateFrameAnimation();
+		}
+	}
+
+	void StaticEntity::UpdateFrameAnimation()
+	{
+		if (currentFrame == nullptr || currentFAnimation == nullptr)
+			return;
+
+		frameTimer += GameUtils::CTimeManager::Instance().DeltaTime();
+
+		//Current frame duration it's over?
+		if (frameTimer >= currentFrame->GetFrameDuration())
+		{
+			currentFrame = currentFAnimation->getNextFrame(currentFrame);
+			frameTimer = 0;
+		}
 	}
 }

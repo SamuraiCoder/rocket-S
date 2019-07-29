@@ -2,7 +2,8 @@
 #define STATICENTITY
 
 /*
-	StaticEntity class. It represents a sprite that doesn't move and doesn't make animations.
+	StaticEntity: 
+	It represents an entity that doesn't move but can show animations.
 */
 
 #include "Entity.h"
@@ -15,7 +16,7 @@ namespace Logic{
 		~StaticEntity() {};
 		void Update();
 	private:
-
+		void UpdateFrameAnimation();
 	};
 }
 

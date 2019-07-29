@@ -5,7 +5,8 @@
 #include "Graphics\FrameAnimationSet.h"
 
 /*
-	Entity class. It represents an entity (hero, enemies, props, bullets...) in a game scene.
+	Entity:
+	Acts as an interface for entities (hero, enemies, props, bullets...) in a game scene.
 */
 
 namespace Logic {
@@ -16,7 +17,6 @@ namespace Logic {
 			virtual void Update();
 			virtual void Draw();
 
-		//protected:
 			std::string entityName;
 			bool isActive;
 			float x, y;

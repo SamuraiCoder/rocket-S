@@ -39,6 +39,7 @@ namespace Graphics {
 				SDL_Surface *spriteSurface = Graphics::CGraphicsManager::Instance().loadSurface(resPath + spriteSheetName);
 
 				//for transparency, we will grab the [transparentPixelIndex] from the surface
+				//but we need to know which one is. 
 				SDL_Color* transparentPixel = &spriteSurface->format->palette->colors[transparentPixelIndex];
 				SDL_SetColorKey(spriteSurface, 1, SDL_MapRGB(spriteSurface->format, transparentPixel->r, transparentPixel->g, transparentPixel->b));
 

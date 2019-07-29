@@ -2,7 +2,8 @@
 #define HERO
 
 /*
-	Hero class. 
+	Hero:
+	It represents a hero. It will receive moving commands and show animations. A
 */
 
 #include "Entity.h"
