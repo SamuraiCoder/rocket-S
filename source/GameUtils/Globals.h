@@ -6,3 +6,12 @@
 
 #include "GraphicsManager.h"
 #include "TimeManager.h"
+
+namespace Constants
+{
+	enum class Entity
+	{
+		POSITION_X,
+		POSITION_Y
+	};
+}

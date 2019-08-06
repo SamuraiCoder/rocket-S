@@ -17,6 +17,7 @@ class Game{
 
 		void update();
 	private:
+		void sortEntities(Constants::Entity type);
 		void drawEntities();
 		void updateEntities();
 

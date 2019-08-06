@@ -1,7 +1,7 @@
 #include "Entity.h"
 
 namespace Logic {
-	
+
 	Entity::~Entity()
 	{
 		delete entityFAnimationSet;

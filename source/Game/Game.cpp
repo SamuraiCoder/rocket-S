@@ -5,19 +5,6 @@
 using Logic::Hero;
 using Logic::StaticEntity;
 
-
-struct EntityYDepthComparator
-{
-	bool operator ()(const Logic::Entity* const& e1, const Logic::Entity* const &e2)
-	{
-		if (e1->y < e2->y)
-			return true;
-		else
-		    return false;
-	}
-};
-
-
 Game::Game()
 {
 	//Create background
@@ -55,11 +42,42 @@ void Game::update()
 						break;
 				}
 			}
-			m_GameEntities.sort(EntityYDepthComparator());
+			sortEntities(Constants::Entity::POSITION_Y);
 			updateEntities();
 			drawEntities();
 		}
 }
+
+void Game::sortEntities(Constants::Entity type)
+{
+	auto sortCompare = [type](const Logic::Entity* const& e1, const Logic::Entity* const &e2)
+	{
+		switch (type)
+		{
+		case Constants::Entity::POSITION_X:
+		{
+			if (e1->x < e2->x)
+				return true;
+			else
+				return false;
+			break;
+		}
+		case Constants::Entity::POSITION_Y:
+		{
+			if (e1->y < e2->y)
+				return true;
+			else
+				return false;
+			break;
+		}
+		default:
+			return false;
+			break;
+		}
+	};
+	m_GameEntities.sort(sortCompare);
+}
+
 void Game::drawEntities()
 {
 	for (auto ent = m_GameEntities.begin(); ent != m_GameEntities.end(); ++ent){
