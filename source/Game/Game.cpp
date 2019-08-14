@@ -1,12 +1,17 @@
 #include "Game.h"
 
 #include <iostream>
+#include "Logic\Hero.h"
+#include "Logic\StaticEntity.h"
 
 using Logic::Hero;
 using Logic::StaticEntity;
 
 Game::Game()
 {
+	//Attach this class to the InputManager through a keyboard listener
+	GameUtils::CInputManager::Instance().addKeyListener(this);
+
 	//Create background
 	StaticEntity *wallBackground = new StaticEntity("wallBackground", 0.0f, 0.0f, 1, "background1.fas");
 	m_GameEntities.push_back(wallBackground);
@@ -26,26 +31,15 @@ Game::~Game()
 
 void Game::update()
 {
-		bool exitApp = false;
-		
-		SDL_Event sdl_event;
-
-		while (!exitApp)
-		{
-			GameUtils::CTimeManager::Instance().Update();
-			while (SDL_PollEvent(&sdl_event))
-			{
-				switch (sdl_event.key.keysym.scancode)
-				{
-					case SDL_SCANCODE_ESCAPE:
-						exitApp = true;
-						break;
-				}
-			}
-			sortEntities(Constants::Entity::POSITION_Y);
-			updateEntities();
-			drawEntities();
-		}
+	while (!_exitApp)
+	{
+		GameUtils::CTimeManager::Instance().Update();
+		GameUtils::CInputManager::Instance().Update();
+			
+		sortEntities(Constants::Entity::POSITION_Y);
+		drawEntities();
+		updateEntities();
+	}
 }
 
 void Game::sortEntities(Constants::Entity type)
@@ -90,4 +84,16 @@ void Game::updateEntities()
 	for (auto ent = m_GameEntities.begin(); ent != m_GameEntities.end(); ++ent){
 		(*ent)->Update();
 	}
+}
+
+bool Game::keyPressed(Constants::Key key)
+{
+	switch (key)
+	{
+	case Constants::Key::KEY_ESCAPE:
+		_exitApp = true;
+		break;
+	}
+	
+	return false;
 }

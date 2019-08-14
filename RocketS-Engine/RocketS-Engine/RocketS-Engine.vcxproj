@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\GameUtils\FileUtils.cpp" />
+    <ClCompile Include="..\..\source\GameUtils\InputManager.cpp" />
     <ClCompile Include="..\..\source\GameUtils\TimeManager.cpp" />
     <ClCompile Include="..\..\source\Game\Game.cpp" />
     <ClCompile Include="..\..\source\Game\main.cpp" />
@@ -26,6 +27,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\source\GameUtils\FileUtils.h" />
     <ClInclude Include="..\..\source\GameUtils\Globals.h" />
+    <ClInclude Include="..\..\source\GameUtils\InputManager.h" />
     <ClInclude Include="..\..\source\GameUtils\TimeManager.h" />
     <ClInclude Include="..\..\source\Game\Game.h" />
     <ClInclude Include="..\..\source\Graphics\Frame.h" />

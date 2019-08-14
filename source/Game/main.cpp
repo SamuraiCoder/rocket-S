@@ -19,6 +19,9 @@ int main(int argc, char** argv)
 	//Init time server
 	GameUtils::CTimeManager::Instance();
 
+	//Init input server
+	GameUtils::CInputManager::Instance();
+
 	//Create the game
 	Game myGame;
 	myGame.update();

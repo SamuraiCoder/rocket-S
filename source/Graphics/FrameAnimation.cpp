@@ -1,4 +1,5 @@
 #include "FrameAnimation.h"
+#include "GameUtils\FileUtils.h"
 
 namespace Graphics {
 	FrameAnimation::FrameAnimation(const string &name)

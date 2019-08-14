@@ -1,4 +1,6 @@
 #include "FrameAnimationSet.h"
+#include "GameUtils\FileUtils.h"
+#include "Graphics\GraphicsManager.h"
 
 namespace Graphics {
 	FrameAnimationSet::FrameAnimationSet(const string &animName)

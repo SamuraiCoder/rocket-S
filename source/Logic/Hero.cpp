@@ -1,5 +1,6 @@
 #include "Hero.h"
 #include "Graphics\FrameAnimationSet.h"
+#include "GameUtils\TimeManager.h"
 
 using Graphics::FrameAnimationSet;
 

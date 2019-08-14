@@ -1,4 +1,6 @@
 #include "Frame.h"
+#include "Graphics\GraphicsManager.h"
+#include "GameUtils\FileUtils.h"
 
 namespace Graphics{
 

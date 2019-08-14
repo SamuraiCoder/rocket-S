@@ -1,5 +1,7 @@
 #include "Logic\StaticEntity.h"
 #include "Graphics\FrameAnimationSet.h"
+#include "GameUtils\TimeManager.h"
+#include "GameUtils\InputManager.h"
 
 using Graphics::FrameAnimationSet;
 

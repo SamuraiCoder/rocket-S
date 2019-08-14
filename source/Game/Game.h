@@ -1,21 +1,21 @@
 #ifndef GAME
 #define GAME
 
-#include <SDL.h>
-#include <SDL_image.h>
+#include "GameUtils\Globals.h" 
 #include "Logic\Entity.h"
-#include "Logic\Hero.h"
-#include "Logic\StaticEntity.h"
+#include "GameUtils\InputManager.h"
+#include "Graphics\GraphicsManager.h"
+#include "GameUtils\TimeManager.h"
 
-using Logic::Hero;
-
-
-class Game{
+class Game: 
+	public GameUtils::CKeyboardListener 
+{
 	public:
 		Game();
 		~Game();
 
 		void update();
+		virtual bool keyPressed(Constants::Key key);
 	private:
 		void sortEntities(Constants::Entity type);
 		void drawEntities();
@@ -23,6 +23,7 @@ class Game{
 
 		//Keeps a list of entities across the game
 		list<Logic::Entity*> m_GameEntities;
+		bool _exitApp = false;
 };
 
 #endif

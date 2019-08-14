@@ -6,7 +6,6 @@
 #include <fstream>
 #include <sstream>
 #include "SDL.h"
-#include "GameUtils\Globals.h"
 
 /*
 * Frame

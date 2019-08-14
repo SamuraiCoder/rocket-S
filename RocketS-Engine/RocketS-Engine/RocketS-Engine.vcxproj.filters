@@ -52,6 +52,9 @@
     <ClCompile Include="..\..\source\Logic\StaticEntity.cpp">
       <Filter>Source Files\Logic</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\GameUtils\InputManager.cpp">
+      <Filter>Source Files\GameUtils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\source\Game\Game.h">
@@ -86,6 +89,9 @@
     </ClInclude>
     <ClInclude Include="..\..\source\Logic\StaticEntity.h">
       <Filter>Source Files\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\GameUtils\InputManager.h">
+      <Filter>Source Files\GameUtils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
