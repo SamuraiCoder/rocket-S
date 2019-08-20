@@ -22,6 +22,9 @@ namespace Logic{
 		x = positionX;
 		y = positionY;
 		scale = entityScale;
+
+		//Init all the components 
+		Entity::InitComponents();
 	}
 
 	void StaticEntity::Update()
@@ -33,6 +36,7 @@ namespace Logic{
 
 		if (isActive)
 		{
+			Entity::UpdateComponents();
 			UpdateFrameAnimation();
 		}
 	}

@@ -25,6 +25,14 @@ namespace Constants
 		KEY_SPACE       = SDL_SCANCODE_SPACE,
 		KEY_BACKSPACE   = SDL_SCANCODE_BACKSPACE
 	};
+	/*
+	* It contains all the message's type available for sending. 
+	*/
+	enum class MessageType
+	{
+		SET_POSITION,
+		ENTITY_CLICKED
+	};
 }
 
 #endif

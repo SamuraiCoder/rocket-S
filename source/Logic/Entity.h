@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Graphics\FrameAnimationSet.h"
+#include "BaseComponent.h"
 
 /*
 	Entity:
@@ -16,6 +17,12 @@ namespace Logic {
 			virtual ~Entity();
 			virtual void Update();
 			virtual void Draw();
+			void InitComponents();
+			void UpdateComponents();
+			void AddComponent(BaseComponent* component);
+			void RemoveComponent(BaseComponent* component);
+			void RemoveAllComponents();
+			bool SendMessage(Message *msg, BaseComponent* emitter = 0);
 
 			std::string entityName;
 			bool isActive;
@@ -28,6 +35,10 @@ namespace Logic {
 			Graphics::FrameAnimationSet *entityFAnimationSet;
 			Graphics::FrameAnimation *currentFAnimation;
 			Graphics::Frame *currentFrame;
+
+		protected:
+			//This will hold a list of components 
+			std::list<BaseComponent*> _components;
 	};
 }
 

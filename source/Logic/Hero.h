@@ -15,6 +15,8 @@ namespace Logic{
 		Hero(const std::string &heroName, float positionX, float positionY, float scale, float speedMove, float maxSpeedMove, const std::string &frameAnimSetName);
 		~Hero();
 		void Update();
+		void InitComponents();
+
 	private:
 		void UpdateFrameAnimation();
 		void UpdateMove();

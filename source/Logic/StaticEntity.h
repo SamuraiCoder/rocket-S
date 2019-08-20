@@ -15,6 +15,7 @@ namespace Logic{
 		StaticEntity(const std::string &staticEntityName, float positionX, float positionY, float scale, const std::string &frameAnimSetName);
 		~StaticEntity() {};
 		void Update();
+		void InitComponents();
 	private:
 		void UpdateFrameAnimation();
 	};

@@ -20,8 +20,10 @@
     <ClCompile Include="..\..\source\Graphics\FrameAnimation.cpp" />
     <ClCompile Include="..\..\source\Graphics\FrameAnimationSet.cpp" />
     <ClCompile Include="..\..\source\Graphics\GraphicsManager.cpp" />
+    <ClCompile Include="..\..\source\Logic\BaseComponent.cpp" />
     <ClCompile Include="..\..\source\Logic\Entity.cpp" />
     <ClCompile Include="..\..\source\Logic\Hero.cpp" />
+    <ClCompile Include="..\..\source\Logic\MessageDispatcher.cpp" />
     <ClCompile Include="..\..\source\Logic\StaticEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -34,8 +36,10 @@
     <ClInclude Include="..\..\source\Graphics\FrameAnimation.h" />
     <ClInclude Include="..\..\source\Graphics\FrameAnimationSet.h" />
     <ClInclude Include="..\..\source\Graphics\GraphicsManager.h" />
+    <ClInclude Include="..\..\source\Logic\BaseComponent.h" />
     <ClInclude Include="..\..\source\Logic\Entity.h" />
     <ClInclude Include="..\..\source\Logic\Hero.h" />
+    <ClInclude Include="..\..\source\Logic\MessageDispatcher.h" />
     <ClInclude Include="..\..\source\Logic\StaticEntity.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

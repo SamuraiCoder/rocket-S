@@ -24,6 +24,9 @@ namespace Logic{
 		moveSpeed = speedMove;
 		maxMoveSpeed = maxSpeedMove;
 		scale = entityScale;
+
+		//Init all the components 
+		Entity::InitComponents();
 	}
 
 	Hero::~Hero()
@@ -38,6 +41,7 @@ namespace Logic{
 
 		if (isActive)
 		{
+			Entity::UpdateComponents();
 			UpdateFrameAnimation();
 			UpdateMove();
 		}

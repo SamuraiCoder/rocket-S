@@ -15,7 +15,7 @@ class Game:
 		~Game();
 
 		void update();
-		virtual bool keyPressed(Constants::Key key);
+		virtual bool keyPressed(Constants::Key key); //CInputManager
 	private:
 		void sortEntities(Constants::Entity type);
 		void drawEntities();
