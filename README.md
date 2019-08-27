@@ -1,4 +1,4 @@
-# rocket-S
+# rocket-S (another copy of MetalSlug in C++)
 C++ framework to create a 2D game.
 
 This is just a small project I want to try in order to check how SDL2 works and basically start making a simple engine that manages everything involved in a simple gameplay.
