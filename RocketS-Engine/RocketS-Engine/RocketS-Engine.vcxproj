@@ -23,6 +23,7 @@
     <ClCompile Include="..\..\source\Logic\BaseComponent.cpp" />
     <ClCompile Include="..\..\source\Logic\Entity.cpp" />
     <ClCompile Include="..\..\source\Logic\Hero.cpp" />
+    <ClCompile Include="..\..\source\Logic\HeroController.cpp" />
     <ClCompile Include="..\..\source\Logic\MessageDispatcher.cpp" />
     <ClCompile Include="..\..\source\Logic\StaticEntity.cpp" />
   </ItemGroup>
@@ -39,7 +40,9 @@
     <ClInclude Include="..\..\source\Logic\BaseComponent.h" />
     <ClInclude Include="..\..\source\Logic\Entity.h" />
     <ClInclude Include="..\..\source\Logic\Hero.h" />
+    <ClInclude Include="..\..\source\Logic\HeroController.h" />
     <ClInclude Include="..\..\source\Logic\MessageDispatcher.h" />
+    <ClInclude Include="..\..\source\Logic\MessageMove.h" />
     <ClInclude Include="..\..\source\Logic\StaticEntity.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

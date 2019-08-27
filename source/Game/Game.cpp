@@ -3,6 +3,9 @@
 #include <iostream>
 #include "Logic\Hero.h"
 #include "Logic\StaticEntity.h"
+#include "GameUtils\Globals.h"
+
+#include "Logic\MessageMove.h"
 
 using Logic::Hero;
 using Logic::StaticEntity;
@@ -23,6 +26,8 @@ Game::Game()
 
 Game::~Game()
 {
+	GameUtils::CInputManager::Instance().removeKeyListener(this);
+
 	for (auto ent = m_GameEntities.begin(); ent != m_GameEntities.end(); ++ent)
 		delete (*ent);
 
@@ -86,14 +91,43 @@ void Game::updateEntities()
 	}
 }
 
-bool Game::keyPressed(Constants::Key key)
+bool Game::KeyPressed(Constants::Key key)
 {
 	switch (key)
 	{
 	case Constants::Key::KEY_ESCAPE:
 		_exitApp = true;
 		break;
+	case Constants::Key::KEY_D:
+		EmitMessageToAllEntities(new Logic::CMessageMove(Constants::MessageType::D_PRESSED_MOVE_FORWARD));
+		break;
+	case Constants::Key::KEY_A:
+		EmitMessageToAllEntities(new Logic::CMessageMove(Constants::MessageType::A_PRESSED_MOVE_BACKWARDS));
+		break;
+
 	}
 	
 	return false;
+}
+
+bool Game::KeyReleased(Constants::Key key)
+{
+	switch (key)
+	{
+	case Constants::Key::KEY_D:
+		EmitMessageToAllEntities(new Logic::CMessageMove(Constants::MessageType::D_RELEASED_MOVE_FORWARD));
+		break;
+	case Constants::Key::KEY_A:
+		EmitMessageToAllEntities(new Logic::CMessageMove(Constants::MessageType::A_RELEASED_MOVE_BACKWARDS));
+		break;
+	}
+
+	return false;
+}
+
+void Game::EmitMessageToAllEntities(Message *msg)
+{
+	for (auto ent = m_GameEntities.begin(); ent != m_GameEntities.end(); ++ent){
+		(*ent)->SendMessage(msg);
+	}
 }

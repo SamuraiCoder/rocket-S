@@ -56,11 +56,11 @@ namespace Logic {
 
 	bool Entity::SendMessage(Message *msg, BaseComponent *comp)
 	{
-		// Para saber si alguien quiso el mensaje.
+		//Does anyone want the msg? 
 		bool anyReceiver = false;
 		for (auto it = _components.begin(); it != _components.end(); ++it)
 		{
-			// Al emisor no se le envia el mensaje.
+			//Don't send the msg to the emitter
 			if (comp != (*it))
 				(*it)->AddMessageToQueue(msg) || anyReceiver;
 		}

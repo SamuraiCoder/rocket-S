@@ -19,7 +19,8 @@ namespace GameUtils
 	class CKeyboardListener
 	{
 	public: 
-		virtual bool keyPressed(Constants::Key key) { return false; }
+		virtual bool KeyPressed(Constants::Key key) { return false; }
+		virtual bool KeyReleased(Constants::Key key) { return false; }
 	};
 	
 	/*
@@ -53,6 +54,7 @@ namespace GameUtils
 		Constants::Key _SDLKey2GameKey(const SDL_Keysym &key);
 		//Internal method that will be called after SDL key input happens
 		bool _KeyPressed(const SDL_Keysym &key);
+		bool _KeyReleased(const SDL_Keysym &key);
 	};
 }
 

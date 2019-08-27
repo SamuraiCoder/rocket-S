@@ -4,6 +4,12 @@ namespace Logic {
 	
 	MessageDispatcher::~MessageDispatcher()
 	{
+		//Just in case there are pending msg to process
+		auto it = _messages.begin();
+		for (; it != _messages.end(); ++it)
+		{
+			delete (*it->get());
+		}
 		_messages.clear();
 	} 
 
@@ -23,11 +29,10 @@ namespace Logic {
 		auto it = _messages.begin();
 		for (; it != _messages.end(); ++it)
 		{
-			ProcessMessage(*it); 
+			ProcessMessage(*it->get()); //de-reference msg to process
+			delete (*it->get()); //remove msg because it's processed
 		}
-		//due to the usage of shared_ptr once it's processed it deletes 1 ref counter. If 0 then it deletes 
-		_messages.clear();
-
+		_messages.clear();//Once it finishes from processing all of them, clear the list
 	}
 }
 

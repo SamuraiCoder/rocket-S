@@ -2,6 +2,8 @@
 #include "Graphics\FrameAnimationSet.h"
 #include "GameUtils\TimeManager.h"
 
+#include "Logic\HeroController.h"
+
 using Graphics::FrameAnimationSet;
 
 
@@ -25,13 +27,19 @@ namespace Logic{
 		maxMoveSpeed = maxSpeedMove;
 		scale = entityScale;
 
+		//Create components
+		HeroController *hController = new HeroController("HeroController");
+		hController->InitiateComponent(this);
+
+		//Attach the component to the Entity
+		Entity::AddComponent(hController);
+
 		//Init all the components 
 		Entity::InitComponents();
 	}
 
 	Hero::~Hero()
 	{
-		
 	}
 
 	void Hero::Update()
@@ -43,7 +51,6 @@ namespace Logic{
 		{
 			Entity::UpdateComponents();
 			UpdateFrameAnimation();
-			UpdateMove();
 		}
 	}
 	
@@ -60,10 +67,5 @@ namespace Logic{
 			currentFrame = currentFAnimation->getNextFrame(currentFrame);
 			frameTimer = 0;
 		}
-	}
-	
-	void Hero::UpdateMove()
-	{
-
 	}
 }

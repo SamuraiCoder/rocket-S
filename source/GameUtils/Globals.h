@@ -7,6 +7,8 @@ namespace Constants
 {
 	enum class Entity
 	{
+		DIRECTION_FORWARD,
+		DIRECTION_BACKWARDS,
 		POSITION_X,
 		POSITION_Y
 	};
@@ -30,7 +32,10 @@ namespace Constants
 	*/
 	enum class MessageType
 	{
-		SET_POSITION,
+		D_PRESSED_MOVE_FORWARD,
+		D_RELEASED_MOVE_FORWARD,
+		A_PRESSED_MOVE_BACKWARDS,
+		A_RELEASED_MOVE_BACKWARDS,
 		ENTITY_CLICKED
 	};
 }

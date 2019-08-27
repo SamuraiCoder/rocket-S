@@ -6,6 +6,9 @@
 #include "GameUtils\InputManager.h"
 #include "Graphics\GraphicsManager.h"
 #include "GameUtils\TimeManager.h"
+#include "Logic\MessageDispatcher.h"
+
+using Logic::Message;
 
 class Game: 
 	public GameUtils::CKeyboardListener 
@@ -15,7 +18,9 @@ class Game:
 		~Game();
 
 		void update();
-		virtual bool keyPressed(Constants::Key key); //CInputManager
+		virtual bool KeyPressed(Constants::Key key); //CInputManager
+		virtual bool KeyReleased(Constants::Key key); //CInputManager
+		void EmitMessageToAllEntities(Message *msg);
 	private:
 		void sortEntities(Constants::Entity type);
 		void drawEntities();

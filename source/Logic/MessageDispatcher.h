@@ -40,7 +40,7 @@ namespace Logic {
 			virtual bool AcceptMessage(Message *message) { return false; }
 
 			//Handles a message and performs an action. Every class should implement this method. 
-			virtual void ProcessMessage(std::shared_ptr<Message*> message) { }
+			virtual void ProcessMessage(Message* message) { }
 
 			//This method will process all the message's queue. Probably will be called from Component's tick
 			void ProcessAllMessages();
@@ -48,7 +48,6 @@ namespace Logic {
 	protected:
 		//List that holds all the messages
 		std::list< std::shared_ptr<Message*> > _messages;
-
 	};
 }
 

@@ -19,7 +19,6 @@ namespace Logic{
 
 	private:
 		void UpdateFrameAnimation();
-		void UpdateMove();
 	};
 }
 

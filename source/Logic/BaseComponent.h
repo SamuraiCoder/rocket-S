@@ -23,12 +23,13 @@ namespace Logic {
 			BaseComponent() : _entity(0){ }
 			//Base destructor (does nothing)
 			virtual ~BaseComponent() {}
-			//It is called when entity is created in order to initiate all the components. 
+			//To initiate all the components. 
 			virtual bool InitiateComponent(Entity* entity);
 			virtual void Update();
 			Entity *GetLinkedEntity() const { return _entity; }
 	protected:
 		Entity *_entity;
+		std::string _componentName;
 	};
 }
 

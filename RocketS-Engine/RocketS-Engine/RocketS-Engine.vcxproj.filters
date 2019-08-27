@@ -17,6 +17,12 @@
     <Filter Include="Source Files\Logic">
       <UniqueIdentifier>{2cffbcc6-2d93-4ddc-912f-aa3fbb83e79a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Logic\Components">
+      <UniqueIdentifier>{7bf10426-519f-4794-8a76-3068648bb73b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Logic\Messages">
+      <UniqueIdentifier>{8ad87477-19dc-4b7e-9a0d-3316def35c92}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\Game\Game.cpp">
@@ -61,6 +67,9 @@
     <ClCompile Include="..\..\source\Logic\MessageDispatcher.cpp">
       <Filter>Source Files\Logic</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\Logic\HeroController.cpp">
+      <Filter>Source Files\Logic\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\source\Game\Game.h">
@@ -104,6 +113,12 @@
     </ClInclude>
     <ClInclude Include="..\..\source\Logic\MessageDispatcher.h">
       <Filter>Source Files\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Logic\HeroController.h">
+      <Filter>Source Files\Logic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Logic\MessageMove.h">
+      <Filter>Source Files\Logic\Messages</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
