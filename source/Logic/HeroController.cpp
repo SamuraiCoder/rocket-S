@@ -49,7 +49,7 @@ namespace Logic{
 
 		if (_moveSpeed > 0.0f)
 		{
-			float distanceMoved = _moveSpeed * (GameUtils::CTimeManager::Instance().DeltaTime()) * 7.0f;
+			float distanceMoved = _moveSpeed * (GameUtils::CTimeManager::Instance().DeltaTime()) * 10.0f;
 			if (distanceMoved > 0)
 			{
 				if (_direction == Constants::Entity::DIRECTION_FORWARD)

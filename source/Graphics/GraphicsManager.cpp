@@ -110,7 +110,6 @@ namespace Graphics
 	void CGraphicsManager::renderTexture(SDL_Texture *tex, SDL_Rect *dst, SDL_Rect *clip)
 	{
 		SDL_RenderCopy(_renderer, tex, clip, dst);
-		SDL_RenderPresent(_renderer);
 	}
 
 	void CGraphicsManager::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, int scale, SDL_Rect *clip)
@@ -130,12 +129,16 @@ namespace Graphics
 		renderTexture(tex, &dst, clip);
 	}
 
+	void CGraphicsManager::UpdateScreen()
+	{
+		SDL_RenderPresent(_renderer);
+	}
+
 	void CGraphicsManager::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, SDL_Rect dst, SDL_Rect *clip)
 	{
 		SDL_RenderCopy(ren, tex, clip, &dst);
 	}
 
-	
 	SDL_Texture* CGraphicsManager::renderText(const std::string &message, const std::string &fontFile, SDL_Color color, int fontSize)
 	{
 		//Open the font

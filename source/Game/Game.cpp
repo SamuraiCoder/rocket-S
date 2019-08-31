@@ -82,6 +82,8 @@ void Game::drawEntities()
 	for (auto ent = m_GameEntities.begin(); ent != m_GameEntities.end(); ++ent){
 		(*ent)->Draw();
 	}
+	//Render the screen
+	Graphics::CGraphicsManager::Instance().UpdateScreen();
 }
 
 void Game::updateEntities()

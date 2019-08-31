@@ -34,6 +34,7 @@ namespace Graphics
 		void SetupSDLWindow(int height, int width);
 		void SetupSDLRenderer();
 		void SetRendererLogicalSize(int height, int width);
+		void CGraphicsManager::UpdateScreen();
 
 		//CleanUp window, renderer, texture or surface.
 		void cleanup(SDL_Window *win);

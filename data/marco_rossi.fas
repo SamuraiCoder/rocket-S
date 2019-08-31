@@ -1,22 +1,67 @@
 Marco_Rossi_SpriteSheet.png
-animations: 1
+animations: 2
 idle
 frames: 3
 frame
 index: 0
 duration: 0.2
 offset: 17 39
-clip: 3 19 32 42
+clip: 4 19 31 42
 frame
 index: 1
 duration: 0.2
 offset: 17 39
-clip: 35 19 32 42
+clip: 35 19 31 42
 frame
 index: 2
 duration: 0.2
 offset: 17 39
-clip: 67 19 32 42
+clip: 64 19 31 42
+run-forward-w-gun
+frames: 8
+frame
+index: 0
+duration: 0.1
+offset: 17 39
+clip: 3 62 30 80
+frame
+index: 1
+duration: 0.1
+offset: 17 39
+clip: 35 62 30 80
+frame
+index: 2
+duration: 0.1
+offset: 17 39
+clip: 64 62 34 80
+frame
+index: 3
+duration: 0.1
+offset: 17 39
+clip: 97 62 34 80
+frame
+index: 4
+duration: 0.1
+offset: 17 39
+clip: 131 62 30 80
+frame
+index: 5
+duration: 0.1
+offset: 17 39
+clip: 163 62 30 80
+frame
+index: 6
+duration: 0.1
+offset: 17 39
+clip: 192 62 35 80
+frame
+index: 7
+duration: 0.1
+offset: 17 39
+clip: 227 62 32 80
+
+
+
 
 
 

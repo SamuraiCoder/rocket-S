@@ -12,12 +12,15 @@ namespace Logic{
 	{
 		//Create the animSet.
 		FrameAnimationSet *heroAnimSet = new FrameAnimationSet(frameAnimSetName);
-		heroAnimSet->loadAnimationSet(frameAnimSetName, true, 0);
+		heroAnimSet->loadAnimationSet(frameAnimSetName, false, 0);
 		//and assing it to the entity (hero) one.
 		entityFAnimationSet = heroAnimSet;
 		//TODO: fix all the animations in an external source out of here.
 		currentFAnimation = entityFAnimationSet->getFrameAnimationSet("idle");
 		currentFrame = currentFAnimation->getFrame(0);
+
+		//currentFAnimation = entityFAnimationSet->getFrameAnimationSet("run-forward-w-gun");
+		//currentFrame = currentFAnimation->getFrame(0);
 
 		//Create entity Hero
 		entityName = heroName;
