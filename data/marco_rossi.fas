@@ -1,68 +1,222 @@
 Marco_Rossi_SpriteSheet.png
-animations: 2
+animations: 5
 idle
 frames: 3
 frame
 index: 0
-duration: 0.2
-offset: 17 39
-clip: 4 19 31 42
+duration: 0.3
+offset: 17 38
+clip: 6 24 29 38
 frame
 index: 1
-duration: 0.2
-offset: 17 39
-clip: 35 19 31 42
+duration: 0.3
+offset: 17 38
+clip: 37 24 29 38
 frame
 index: 2
-duration: 0.2
-offset: 17 39
-clip: 64 19 31 42
+duration: 0.3
+offset: 17 38
+clip: 66 24 30 38
 run-forward-w-gun
 frames: 8
 frame
 index: 0
 duration: 0.1
 offset: 17 39
-clip: 3 62 30 80
+clip: 4 68 30 42
 frame
 index: 1
 duration: 0.1
 offset: 17 39
-clip: 35 62 30 80
+clip: 35 68 30 42
 frame
 index: 2
 duration: 0.1
 offset: 17 39
-clip: 64 62 34 80
+clip: 64 68 34 42
 frame
 index: 3
 duration: 0.1
 offset: 17 39
-clip: 97 62 34 80
+clip: 97 68 34 42
 frame
 index: 4
 duration: 0.1
 offset: 17 39
-clip: 131 62 30 80
+clip: 131 68 30 42
 frame
 index: 5
 duration: 0.1
 offset: 17 39
-clip: 163 62 30 80
+clip: 163 68 30 42
 frame
 index: 6
 duration: 0.1
 offset: 17 39
-clip: 192 62 35 80
+clip: 192 68 35 42
 frame
 index: 7
 duration: 0.1
 offset: 17 39
-clip: 227 62 32 80
-
-
-
-
-
-
-
+clip: 227 68 32 42
+shooting
+frames: 4
+frame
+index: 0
+duration: 0.1
+offset: 17 39
+clip: 6 122 52 42
+frame
+index: 1
+duration: 0.1
+offset: 17 39
+clip: 57 122 52 42
+frame
+index: 2
+duration: 0.1
+offset: 17 39
+clip: 113 122 40 42
+frame
+index: 3
+duration: 0.1
+offset: 17 39
+clip: 155 122 40 42
+reloading
+frames: 16
+frame
+index: 0
+duration: 0.1
+offset: 17 39
+clip: 6 163 33 42
+frame
+index: 1
+duration: 0.1
+offset: 17 39
+clip: 39 163 33 42
+frame
+index: 2
+duration: 0.1
+offset: 17 39
+clip: 72 163 33 42
+frame
+index: 3
+duration: 0.1
+offset: 17 39
+clip: 108 163 36 42
+frame
+index: 4
+duration: 0.1
+offset: 17 39
+clip: 144 163 40 42
+frame
+index: 5
+duration: 0.1
+offset: 17 39
+clip: 184 163 40 42
+frame
+index: 6
+duration: 0.1
+offset: 17 39
+clip: 3 204 34 42
+frame
+index: 7
+duration: 0.1
+offset: 17 39
+clip: 42 204 34 42
+frame
+index: 8
+duration: 0.1
+offset: 17 39
+clip: 80 204 34 42
+frame
+index: 9
+duration: 0.1
+offset: 17 39
+clip: 117 204 34 42
+frame
+index: 10
+duration: 0.1
+offset: 17 39
+clip: 156 204 34 42
+frame
+index: 11
+duration: 0.1
+offset: 17 39
+clip: 193 204 39 42
+frame
+index: 12
+duration: 0.1
+offset: 17 39
+clip: 232 204 39 40
+frame
+index: 13
+duration: 0.1
+offset: 17 39
+clip: 272 204 40 40
+frame
+index: 14
+duration: 0.1
+offset: 17 39
+clip: 313 204 40 40
+frame
+index: 15
+duration: 0.1
+offset: 17 39
+clip: 356 205 40 40
+idle-drinking
+frames: 11
+frame
+index: 0
+duration: 0.1
+offset: 17 39
+clip: 4 250 30 42
+frame
+index: 1
+duration: 0.1
+offset: 17 39
+clip: 35 250 33 42
+frame
+index: 2
+duration: 0.1
+offset: 17 39
+clip: 68 250 34 42
+frame
+index: 3
+duration: 0.1
+offset: 17 39
+clip: 103 250 34 42
+frame
+index: 4
+duration: 0.1
+offset: 17 39
+clip: 140 250 32 40
+frame
+index: 5
+duration: 0.1
+offset: 17 59
+clip: 175 244 32 45
+frame
+index: 6
+duration: 0.1
+offset: 17 59
+clip: 208 244 32 45
+frame
+index: 7
+duration: 0.1
+offset: 17 59
+clip: 239 244 32 45
+frame
+index: 8
+duration: 0.1
+offset: 17 59
+clip: 273 244 32 45
+frame
+index: 9
+duration: 0.1
+offset: 17 59
+clip: 306 244 32 45
+frame
+index: 10
+duration: 0.1
+offset: 17 59
+clip: 336 244 32 45
