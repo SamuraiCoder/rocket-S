@@ -16,5 +16,7 @@ It contains the following:
 
 This is the current status on how it looks.  
 
-![alt text](https://i.imgur.com/naUML43.png)
+![alt text](https://i.imgur.com/ly2U9WW.png)
+
+![alt text](https://media.giphy.com/media/dBTezsoKcjmyRsznzU/giphy.gif)
 
