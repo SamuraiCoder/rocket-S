@@ -8,17 +8,17 @@ namespace Logic {
 		auto it = _messages.begin();
 		for (; it != _messages.end(); ++it)
 		{
-			delete (*it->get());
+			delete (*it);
 		}
 		_messages.clear();
 	} 
 
-	bool MessageDispatcher::AddMessageToQueue(Message *msg)
+	bool MessageDispatcher::AddMessageToQueue(Message *message)
 	{
-		bool isAccepted = AcceptMessage(msg);
+		bool isAccepted = AcceptMessage(message);
 		if (isAccepted)
 		{
-			auto message = std::make_shared<Message*>(msg);
+			message->increaseRef();
 			_messages.push_back(message);
 		}
 		return isAccepted;
@@ -29,8 +29,9 @@ namespace Logic {
 		auto it = _messages.begin();
 		for (; it != _messages.end(); ++it)
 		{
-			ProcessMessage(*it->get()); //de-reference msg to process
-			delete (*it->get()); //remove msg because it's processed
+			auto msg = (*it);
+			ProcessMessage(msg); //de-reference msg to process
+			msg->decreaseRef();//remove one reference because it's processed
 		}
 		_messages.clear();//Once it finishes from processing all of them, clear the list
 	}

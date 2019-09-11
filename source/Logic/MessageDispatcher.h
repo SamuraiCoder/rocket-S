@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <list>
-#include <memory>
 
 using namespace std;
 
@@ -11,9 +10,34 @@ using namespace std;
 
 namespace Logic {
 	/*
+	ReferenceCounter:
+	This class is used to work as a shared_ptr impl with a simple idea of deleting references when counter goes 0
+	*/
+	class ReferenceCounter
+	{
+	public:
+		ReferenceCounter() { _refCount = 0; }
+		virtual ~ReferenceCounter() {}
+
+		void increaseRef()
+		{
+			_refCount++;
+		}
+		void decreaseRef()
+		{
+			_refCount--;
+			if (_refCount == 0)
+				delete this;
+		}
+	private:
+		int _refCount;
+
+	};
+
+	/*
 	* Message will contain a message that it's going to be sended/received. 
 	*/
-	class Message
+	class Message: public ReferenceCounter
 	{
 	public:
 		Message() {}
@@ -47,7 +71,7 @@ namespace Logic {
 
 	protected:
 		//List that holds all the messages
-		std::list< std::shared_ptr<Message*> > _messages;
+		std::list< Message* > _messages;
 	};
 }
 
