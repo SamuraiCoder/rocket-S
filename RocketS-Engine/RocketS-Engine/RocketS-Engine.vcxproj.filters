@@ -70,6 +70,9 @@
     <ClCompile Include="..\..\source\Logic\HeroController.cpp">
       <Filter>Source Files\Logic\Components</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\Logic\HeroAnimationController.cpp">
+      <Filter>Source Files\Logic\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\source\Game\Game.h">
@@ -119,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="..\..\source\Logic\MessageMove.h">
       <Filter>Source Files\Logic\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Logic\HeroAnimationController.h">
+      <Filter>Source Files\Logic\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

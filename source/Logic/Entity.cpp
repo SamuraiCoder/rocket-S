@@ -75,7 +75,7 @@ namespace Logic {
 	void Entity::Draw()
 	{
 		if (currentFrame != nullptr && isActive){
-			currentFrame->Draw(entityFAnimationSet->getSpriteSheet(), x, y, scale);
+			currentFrame->Draw(entityFAnimationSet->getSpriteSheet(), x, y, scale, flip);
 		}
 	}
 }

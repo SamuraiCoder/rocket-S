@@ -24,7 +24,7 @@ namespace Graphics{
 		/*
 		 Draws a spritesheet in the given position
 		*/
-		void Draw(SDL_Texture* spriteSheet, float destX, float destY, float scale);
+		void Draw(SDL_Texture* spriteSheet, float destX, float destY, float scale, bool flip);
 		
 		/*
 		 Loads a frame into memory. A Frame is represented with the following structure:

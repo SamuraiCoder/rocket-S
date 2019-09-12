@@ -3,6 +3,7 @@
 #include "GameUtils\TimeManager.h"
 
 #include "Logic\HeroController.h"
+#include "Logic\HeroAnimationController.h"
 
 using Graphics::FrameAnimationSet;
 
@@ -15,12 +16,6 @@ namespace Logic{
 		heroAnimSet->loadAnimationSet(frameAnimSetName, false, 0);
 		//and assing it to the entity (hero) one.
 		entityFAnimationSet = heroAnimSet;
-		//TODO: fix all the animations in an external source out of here.
-		currentFAnimation = entityFAnimationSet->getFrameAnimationSet("idle");
-		currentFrame = currentFAnimation->getFrame(0);
-
-		//currentFAnimation = entityFAnimationSet->getFrameAnimationSet("run-forward-w-gun");
-		//currentFrame = currentFAnimation->getFrame(0);
 
 		//Create entity Hero
 		entityName = heroName;
@@ -29,13 +24,19 @@ namespace Logic{
 		moveSpeed = speedMove;
 		maxMoveSpeed = maxSpeedMove;
 		scale = entityScale;
+		isMoving = false;
 
-		//Create components
+		//Create component for controlling the movement
 		HeroController *hController = new HeroController("HeroController");
 		hController->InitiateComponent(this);
-
 		//Attach the component to the Entity
 		Entity::AddComponent(hController);
+
+		//Create component for displaying animation
+		HeroAnimationController *hAnimationController = new HeroAnimationController("HeroAnimationController");
+		hAnimationController->InitiateComponent(this);
+		//Attach the component to the Entity
+		Entity::AddComponent(hAnimationController);
 
 		//Init all the components 
 		Entity::InitComponents();
@@ -53,7 +54,7 @@ namespace Logic{
 		if (isActive)
 		{
 			Entity::UpdateComponents();
-			UpdateFrameAnimation();
+			UpdateFrameAnimation(); //TODO weird naming. Think to change it. 
 		}
 	}
 	

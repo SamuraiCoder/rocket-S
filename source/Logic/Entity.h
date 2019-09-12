@@ -30,7 +30,9 @@ namespace Logic {
 			float moveSpeed;
 			float maxMoveSpeed;
 			float scale;
+			bool flip;
 			float frameTimer;
+			bool isMoving;
 		
 			Graphics::FrameAnimationSet *entityFAnimationSet;
 			Graphics::FrameAnimation *currentFAnimation;

@@ -4,7 +4,7 @@
 
 namespace Graphics{
 
-	void Frame::Draw(SDL_Texture* spriteSheet, float destX, float destY, float scale)
+	void Frame::Draw(SDL_Texture* spriteSheet, float destX, float destY, float scale, bool flip)
 	{
 		SDL_Rect posToDraw;
 		posToDraw.x = (int)destX - frameAnchor.x;
@@ -12,7 +12,7 @@ namespace Graphics{
 		posToDraw.w = frameClip.w;
 		posToDraw.h = frameClip.h;
 
-		Graphics::CGraphicsManager::Instance().renderTexture(spriteSheet, Graphics::CGraphicsManager::Instance().GetSDLRenderer(), posToDraw.x, posToDraw.y, scale, &frameClip);
+		Graphics::CGraphicsManager::Instance().renderTexture(spriteSheet, Graphics::CGraphicsManager::Instance().GetSDLRenderer(), posToDraw.x, posToDraw.y, scale, flip, &frameClip);
 	}
 
 	void Frame::loadFrame(ifstream &file)

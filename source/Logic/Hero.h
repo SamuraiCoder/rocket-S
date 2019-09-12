@@ -18,7 +18,7 @@ namespace Logic{
 		void InitComponents();
 
 	private:
-		void UpdateFrameAnimation();
+		void UpdateFrameAnimation();//TODO Refactor to include _ if it's going to be private!
 	};
 }
 

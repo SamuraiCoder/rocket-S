@@ -112,7 +112,12 @@ namespace Graphics
 		SDL_RenderCopy(_renderer, tex, clip, dst);
 	}
 
-	void CGraphicsManager::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, int scale, SDL_Rect *clip)
+	void CGraphicsManager::renderTexture(SDL_Texture *tex, SDL_Rect *dst, SDL_Rect *clip, const SDL_RendererFlip flip)
+	{
+		SDL_RenderCopyEx(_renderer, tex, clip, dst, 0.0f, nullptr, flip);
+	}
+
+	void CGraphicsManager::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, int scale, bool flip, SDL_Rect *clip)
 	{
 		SDL_Rect dst;
 		dst.x = x;
@@ -126,7 +131,15 @@ namespace Graphics
 		{
 			SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
 		}
-		renderTexture(tex, &dst, clip);
+
+		if (flip)
+		{
+			renderTexture(tex, &dst, clip, SDL_FLIP_HORIZONTAL);
+		}
+		else
+		{
+			renderTexture(tex, &dst, clip);
+		}
 	}
 
 	void CGraphicsManager::UpdateScreen()

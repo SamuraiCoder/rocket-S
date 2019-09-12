@@ -55,11 +55,13 @@ namespace Logic{
 				if (_direction == Constants::Entity::DIRECTION_FORWARD)
 				{
 					_entity->x += distanceMoved;
+					_entity->flip = false;
 				}
 
 				if (_direction == Constants::Entity::DIRECTION_BACKWARDS)
 				{
 					_entity->x -= distanceMoved;
+					_entity->flip = true;
 				}
 
 				//Inertial movement when keys are not pressed
@@ -68,6 +70,7 @@ namespace Logic{
 					_moveSpeed -= distanceMoved * 1.5f;
 				}
 			}
+			_entity->isMoving = _isMoving; //Update the entity's status
 		}
 	}
 }
