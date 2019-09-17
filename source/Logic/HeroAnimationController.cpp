@@ -5,10 +5,12 @@
 namespace Logic{
 	bool HeroAnimationController::AcceptMessage(Message *msg)
 	{
-		return msg->getType() == Constants::MessageType::D_PRESSED_MOVE_FORWARD || 
-			   msg->getType() == Constants::MessageType::D_RELEASED_MOVE_FORWARD ||
-			   msg->getType() == Constants::MessageType::A_PRESSED_MOVE_BACKWARDS ||
-			   msg->getType() == Constants::MessageType::A_RELEASED_MOVE_BACKWARDS;
+		return msg->getType() == Constants::MessageType::D_PRESSED_MOVE_FORWARD		|| 
+			   msg->getType() == Constants::MessageType::D_RELEASED_MOVE_FORWARD	||
+			   msg->getType() == Constants::MessageType::A_PRESSED_MOVE_BACKWARDS	||
+			   msg->getType() == Constants::MessageType::A_RELEASED_MOVE_BACKWARDS	||
+			   msg->getType() == Constants::MessageType::K_PRESSED_SHOOTING			||
+			   msg->getType() == Constants::MessageType::K_RELEASED_SHOOTING;
 	}
 
 	void HeroAnimationController::ProcessMessage(Message *msg)
@@ -35,6 +37,16 @@ namespace Logic{
 				_newHeroState = Constants::HeroState::HERO_IDLE;
 				break;
 			}
+			case Constants::MessageType::K_PRESSED_SHOOTING:
+			{
+				_newHeroState = Constants::HeroState::HERO_SHOOTING;
+				break;
+			}
+			case Constants::MessageType::K_RELEASED_SHOOTING:
+			{
+				_newHeroState = Constants::HeroState::HERO_IDLE;
+				break;
+			}
 		}
 	}
 
@@ -42,11 +54,25 @@ namespace Logic{
 	{
 		BaseComponent::Update();
 
+		//From IDLE to SHOOT
+		if (_oldHeroState == Constants::HeroState::HERO_IDLE && _newHeroState == Constants::HeroState::HERO_SHOOTING)
+		{
+			_UpdateAnimation(Constants::HeroState::HERO_SHOOTING);
+		}
+		
+		//From IDLE/WALK to IDLE
+		if (_oldHeroState == Constants::HeroState::HERO_SHOOTING && _newHeroState == Constants::HeroState::HERO_IDLE)
+		{
+			_UpdateAnimation(Constants::HeroState::HERO_IDLE);
+		}
+
+		//From IDLE to WALK
 		if (_oldHeroState == Constants::HeroState::HERO_IDLE && _newHeroState == Constants::HeroState::HERO_WALKING)
 		{
 			_UpdateAnimation(Constants::HeroState::HERO_WALKING);
 		}
 
+		//From WALK to IDLE
 		if (_oldHeroState == Constants::HeroState::HERO_WALKING && !_entity->isMoving)
 		{
 			_UpdateAnimation(Constants::HeroState::HERO_IDLE);

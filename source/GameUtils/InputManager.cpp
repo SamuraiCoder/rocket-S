@@ -110,6 +110,9 @@ namespace GameUtils
 		case SDL_SCANCODE_SPACE:
 			tmpKey = Constants::Key::KEY_SPACE;
 			break;
+		case SDL_SCANCODE_K:
+			tmpKey = Constants::Key::KEY_K;
+			break;
 		case SDL_SCANCODE_BACKSPACE:
 			tmpKey = Constants::Key::KEY_BACKSPACE;
 			break;

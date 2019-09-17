@@ -6,10 +6,12 @@
 namespace Logic{
 	bool HeroController::AcceptMessage(Message *msg)
 	{
-		return msg->getType() == Constants::MessageType::D_PRESSED_MOVE_FORWARD || 
-			   msg->getType() == Constants::MessageType::D_RELEASED_MOVE_FORWARD ||
-			   msg->getType() == Constants::MessageType::A_PRESSED_MOVE_BACKWARDS ||
-			   msg->getType() == Constants::MessageType::A_RELEASED_MOVE_BACKWARDS;
+		return msg->getType() == Constants::MessageType::D_PRESSED_MOVE_FORWARD ||
+			msg->getType() == Constants::MessageType::D_RELEASED_MOVE_FORWARD ||
+			msg->getType() == Constants::MessageType::A_PRESSED_MOVE_BACKWARDS ||
+			msg->getType() == Constants::MessageType::A_RELEASED_MOVE_BACKWARDS ||
+			msg->getType() == Constants::MessageType::K_PRESSED_SHOOTING ||
+			msg->getType() == Constants::MessageType::K_RELEASED_SHOOTING;
 	}
 
 	void HeroController::ProcessMessage(Message *msg)
@@ -40,6 +42,16 @@ namespace Logic{
 				_isMoving = false;
 				break;
 			}
+			case Constants::MessageType::K_PRESSED_SHOOTING:
+			{
+				_isShooting = true;
+				break;
+			}
+			case Constants::MessageType::K_RELEASED_SHOOTING:
+			{
+				_isShooting = false;
+				break;
+			}
 		}
 	}
 
@@ -52,13 +64,13 @@ namespace Logic{
 			float distanceMoved = _moveSpeed * (GameUtils::CTimeManager::Instance().DeltaTime()) * 10.0f;
 			if (distanceMoved > 0)
 			{
-				if (_direction == Constants::Entity::DIRECTION_FORWARD)
+				if (!_isShooting && _direction == Constants::Entity::DIRECTION_FORWARD)
 				{
 					_entity->x += distanceMoved;
 					_entity->flip = false;
 				}
 
-				if (_direction == Constants::Entity::DIRECTION_BACKWARDS)
+				if (!_isShooting && _direction == Constants::Entity::DIRECTION_BACKWARDS)
 				{
 					_entity->x -= distanceMoved;
 					_entity->flip = true;

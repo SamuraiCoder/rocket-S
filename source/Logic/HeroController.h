@@ -16,7 +16,7 @@ namespace Logic{
 		HeroController() : BaseComponent() {}
 
 		//Constructor with componentName
-		HeroController(std::string componentName) : BaseComponent(),_isMoving(false), _moveSpeed(0.0f), _maxMoveSpeed(20.0f)
+		HeroController(std::string componentName) : BaseComponent(), _isMoving(false), _isShooting(false), _moveSpeed(0.0f), _maxMoveSpeed(20.0f)
 		{
 			_componentName = componentName;
 		}
@@ -26,7 +26,8 @@ namespace Logic{
 		virtual void Update();
 	private:
 		Constants::Entity _direction;
-		bool _isMoving;	
+		bool _isMoving;
+		bool _isShooting;
 		float _moveSpeed;
 		float _maxMoveSpeed;
 	};

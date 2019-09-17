@@ -106,7 +106,9 @@ bool Game::KeyPressed(Constants::Key key)
 	case Constants::Key::KEY_A:
 		EmitMessageToAllEntities(new Logic::CMessageMove(Constants::MessageType::A_PRESSED_MOVE_BACKWARDS));
 		break;
-
+	case Constants::Key::KEY_K:
+		EmitMessageToAllEntities(new Logic::CMessageMove(Constants::MessageType::K_PRESSED_SHOOTING));
+		break;
 	}
 	
 	return false;
@@ -121,6 +123,9 @@ bool Game::KeyReleased(Constants::Key key)
 		break;
 	case Constants::Key::KEY_A:
 		EmitMessageToAllEntities(new Logic::CMessageMove(Constants::MessageType::A_RELEASED_MOVE_BACKWARDS));
+		break;
+	case Constants::Key::KEY_K:
+		EmitMessageToAllEntities(new Logic::CMessageMove(Constants::MessageType::K_RELEASED_SHOOTING));
 		break;
 	}
 
