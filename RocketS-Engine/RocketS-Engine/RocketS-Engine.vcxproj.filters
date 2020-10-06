@@ -73,6 +73,9 @@
     <ClCompile Include="..\..\source\Logic\HeroAnimationController.cpp">
       <Filter>Source Files\Logic\Components</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\GameUtils\GameUtils.cpp">
+      <Filter>Source Files\GameUtils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\source\Game\Game.h">
@@ -125,6 +128,9 @@
     </ClInclude>
     <ClInclude Include="..\..\source\Logic\HeroAnimationController.h">
       <Filter>Source Files\Logic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\GameUtils\GameUtils.h">
+      <Filter>Source Files\GameUtils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

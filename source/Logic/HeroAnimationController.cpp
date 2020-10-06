@@ -1,6 +1,7 @@
 #include "HeroAnimationController.h"
 #include "GameUtils\Globals.h"
 #include "Logic\Entity.h"
+#include "GameUtils\GameUtils.h"
 
 namespace Logic{
 	bool HeroAnimationController::AcceptMessage(Message *msg)
@@ -60,7 +61,7 @@ namespace Logic{
 			_UpdateAnimation(Constants::HeroState::HERO_SHOOTING);
 		}
 		
-		//From IDLE/WALK to IDLE
+		//From SHOOTING to IDLE
 		if (_oldHeroState == Constants::HeroState::HERO_SHOOTING && _newHeroState == Constants::HeroState::HERO_IDLE)
 		{
 			_UpdateAnimation(Constants::HeroState::HERO_IDLE);
